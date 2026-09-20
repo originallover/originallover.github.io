@@ -17,42 +17,69 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. Suspendisse condimentum, libero vel tempus mattis, risus risus vulputate libero, elementum fermentum mi neque vel nisl. Maecenas facilisis maximus dignissim. Curabitur mattis vulputate dui, tincidunt varius libero luctus eu. Mauris mauris nulla, scelerisque eget massa id, tincidunt congue felis. Sed convallis tempor ipsum rhoncus viverra. Pellentesque nulla orci, accumsan volutpat fringilla vitae, maximus sit amet tortor. Aliquam ultricies odio ut volutpat scelerisque. Donec nisl nisl, porttitor vitae pharetra quis, fringilla sed mi. Fusce pretium dolor ut aliquam consequat. Cras volutpat, tellus accumsan mattis molestie, nisl lacus tempus massa, nec malesuada tortor leo vel quam. Aliquam vel ex consectetur, vehicula leo nec, efficitur eros. Donec convallis non urna quis feugiat.
-
-My research interest includes neural machine translation and computer vision. I have published more than 100 papers at the top international AI conferences with total <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
-
-
-# 🔥 News
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-
-# 📝 Publications 
-
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-
-[Deep Residual Learning for Image Recognition](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
-
-**Kaiming He**, Xiangyu Zhang, Shaoqing Ren, Jian Sun
-
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-</div>
+<div class="home-hero">
+  <div class="home-kicker">SPEECH · AUDIO · MACHINE LEARNING</div>
+  <h1>Building systems that understand <em>what happened, when, and who.</em></h1>
+  <p class="home-lede">I am <strong>Zekun Lan</strong>, working with the Auditory Cognition and Computational Acoustics Lab at Shanghai Jiao Tong University. My research focuses on unified audio understanding, speaker-aware acoustic modeling, and fine-grained paralinguistic event detection.</p>
+  <div class="home-actions">
+    <a class="home-button primary" href="/sa-uaed/">Explore SA-UAED demo <span>↗</span></a>
+    <a class="home-button" href="mailto:blue_zz@sjtu.edu.cn">Get in touch</a>
+  </div>
 </div>
 
-- [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020**
+<div class="interest-row" id="research">
+  <span>Sound event detection</span>
+  <span>Speaker diarization</span>
+  <span>Paralinguistic modeling</span>
+  <span>Audio simulation</span>
+</div>
 
-# 🎖 Honors and Awards
-- *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.09* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+<h1 id="news">News</h1>
 
-# 📖 Educations
-- *2025.09 - 2028.04 (now)*, Shanghai Jiao Tong University 
-- *2021.09 - 2025.06*, Beijing University of Posts and Telecommunications 
+<div class="news-list">
+  <div class="news-item"><time>2026.06</time><p><strong>SA-UAED was accepted to INTERSPEECH 2026.</strong> The work introduces unified frame-level detection of sound events, speaker activity, and speaker-attributed laughter and coughs.</p></div>
+</div>
 
-# 💬 Invited Talks
-- *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/)
+<h1 id="publications">Selected Publications</h1>
 
-# 💻 Internships
-- *2019.05 - 2020.02*, [Lorem](https://github.com/), China.
+<div class="paper-box featured-paper">
+  <div class="paper-box-image">
+    <div>
+      <div class="badge">INTERSPEECH 2026</div>
+      <img src="/images/sa-uaed/model-architecture.png" alt="Architecture of SA-UAED" width="100%">
+    </div>
+  </div>
+  <div class="paper-box-text" markdown="1">
+
+### SA-UAED: Joint Frame-Level Detection of Audio Events, Speaker Activities, and Speaker-Attributed Paralinguistic Events
+
+**Zekun Lan**, Wangyou Zhang, Yanmin Qian
+
+*Proceedings of INTERSPEECH, 2026*
+
+SA-UAED uses task-specific speaker query spaces to attribute transient events such as coughing and laughter without sacrificing speaker diarization performance.
+
+<div class="paper-links">
+  <a href="/sa-uaed/">Interactive Demo</a>
+  <a href="/files/interspeech-2026-sa-uaed.pdf">Paper</a>
+  <a href="https://github.com/originallover/SA-UAED">Code</a>
+</div>
+
+  </div>
+</div>
+
+<div class="research-note">
+  <span class="note-label">CURRENT DIRECTION</span>
+  <p>I am interested in models that move beyond isolated audio tasks—systems that jointly reason about environmental sounds, overlapping speakers, and non-verbal vocal behavior at precise temporal resolution.</p>
+</div>
+
+<h1 id="education">Education</h1>
+
+<div class="education-list">
+  <div><time>2025.09 — 2028.04</time><p><strong>Shanghai Jiao Tong University</strong><span>Current</span></p></div>
+  <div><time>2021.09 — 2025.06</time><p><strong>Beijing University of Posts and Telecommunications</strong></p></div>
+</div>
+
+<h1 id="contact">Contact</h1>
+
+The best way to reach me is by email at [blue_zz@sjtu.edu.cn](mailto:blue_zz@sjtu.edu.cn). You can also find my public code and ongoing projects on [GitHub](https://github.com/originallover).

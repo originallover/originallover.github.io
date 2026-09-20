@@ -1,9 +1,8 @@
 name: Get Citation Data
 
-on: 
- page_build: 
- schedule:
-  - cron:  '0 8 * * *'
+on:
+  # Enable a schedule after adding GOOGLE_SCHOLAR_ID in repository secrets.
+  workflow_dispatch:
 
 jobs:
   build:

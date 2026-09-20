@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interactive demo for SA-UAED: joint frame-level detection of sound events, speaker activity, and speaker-attributed paralinguistic events.">
+  <title>SA-UAED · Interactive Paper Demo</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23090d12'/%3E%3Cpath d='M12 34h7l4-16 7 31 6-25 5 18 4-8h7' fill='none' stroke='%23b9ff66' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../" aria-label="Back to Zekun Lan's homepage">
+      <span class="brand-mark" aria-hidden="true">SA</span>
+      <span>SA-UAED</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#demo">Demo</a>
+      <a href="#method">Method</a>
+      <a href="#results">Results</a>
+      <a class="paper-link" href="./sa-uaed-paper.pdf" target="_blank" rel="noreferrer">Paper <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="intro" aria-labelledby="page-title">
+      <div class="eyebrow"><span></span> INTERSPEECH 2026 · ACCEPTED PAPER</div>
+      <h1 id="page-title">Who spoke, laughed,<br>or coughed—<em>and when?</em></h1>
+      <p class="lede">SA-UAED unifies sound event detection, speaker activity, and speaker-attributed paralinguistic events in one 50 Hz frame-level model.</p>
+      <div class="authors">Zekun Lan · Wangyou Zhang · Yanmin Qian <span>Shanghai Jiao Tong University · VUI Labs</span></div>
+    </section>
+
+    <section class="demo-section" id="demo" aria-labelledby="demo-title">
+      <div class="section-kicker">01 / INTERACTIVE TRACE</div>
+      <div class="demo-heading">
+        <div>
+          <h2 id="demo-title">Hear the scene.<br>Inspect every frame.</h2>
+          <p>This illustrative trace shows how a single model separates overlapping speakers, paralinguistic events, and background sounds.</p>
+        </div>
+        <div class="scenario-switcher" role="group" aria-label="Demo scenario">
+          <button class="scenario-button active" data-scenario="meeting" aria-pressed="true">Meeting</button>
+          <button class="scenario-button" data-scenario="clinic" aria-pressed="false">Clinic</button>
+          <button class="scenario-button" data-scenario="kitchen" aria-pressed="false">Kitchen</button>
+        </div>
+      </div>
+
+      <div class="demo-console">
+        <div class="console-topbar">
+          <button class="play-button" id="playButton" aria-label="Play demo trace">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <div class="time-readout"><strong id="currentTime">00:00.0</strong><span>/ 00:12.0</span></div>
+          <div class="scene-status"><span class="status-dot"></span><span id="sceneLabel">2 speakers · overlapping speech</span></div>
+          <button class="reset-button" id="resetButton">Reset</button>
+        </div>
+
+        <div class="waveform" id="waveform" aria-label="Audio waveform timeline">
+          <div class="wave-bars" aria-hidden="true"></div>
+          <div class="playhead" id="playhead"></div>
+          <div class="time-axis"><span>0s</span><span>3s</span><span>6s</span><span>9s</span><span>12s</span></div>
+        </div>
+
+        <div class="tracks" id="tracks" aria-live="polite"></div>
+
+        <div class="console-footer">
+          <p><span class="pulse-icon" aria-hidden="true"></span><strong id="activeSummary">Ready</strong><span id="activeDetail">Press play to inspect frame-level outputs.</span></p>
+          <span>20 ms resolution</span>
+        </div>
+      </div>
+      <p class="demo-note">Illustrative precomputed trace for explaining model outputs; replace with exported inference results for a live model showcase.</p>
+    </section>
+
+    <section class="method-section" id="method" aria-labelledby="method-title">
+      <div class="section-kicker">02 / METHOD</div>
+      <div class="section-intro">
+        <h2 id="method-title">One model.<br><em>Three kinds of “who.”</em></h2>
+        <p>Generic speaker embeddings work well for articulated speech, but transient laughter and coughs alter the acoustic signature. SA-UAED learns a dedicated projection for each paralinguistic event.</p>
+      </div>
+
+      <div class="method-grid">
+        <article class="method-card architecture-card">
+          <div class="card-number">A</div>
+          <div class="card-copy">
+            <h3>Task-specific query spaces</h3>
+            <p>Speaker embeddings are projected into separate cough and laughter subspaces, then decoded alongside general sound and speech queries.</p>
+          </div>
+          <figure>
+            <img src="./assets/model-architecture.png" alt="SA-UAED architecture with CNN, BEATs and WavLM encoders and separate speech, cough and laugh queries">
+            <figcaption>SA-UAED model architecture</figcaption>
+          </figure>
+        </article>
+
+        <article class="method-card pipeline-card">
+          <div class="card-number">B</div>
+          <div class="card-copy">
+            <h3>Perfectly aligned training data</h3>
+            <p>A controlled simulation pipeline synthesizes speaker-specific coughs and laughter, mixes them with speech and domestic events, and exports exact frame labels.</p>
+          </div>
+          <figure>
+            <img src="./assets/simulation-pipeline.png" alt="Data simulation pipeline using TTS, SED filtering, VAD trimming, audio mixing and frame-level label generation">
+            <figcaption>LibriPara simulation pipeline</figcaption>
+          </figure>
+        </article>
+      </div>
+
+      <div class="dataset-strip" aria-label="LibriPara dataset statistics">
+        <div><strong>500</strong><span>hours of simulated training audio</span></div>
+        <div><strong>50 Hz</strong><span>frame-level annotation resolution</span></div>
+        <div><strong>≤ 3</strong><span>speakers in each 32-second scene</span></div>
+        <div><strong>15%</strong><span>controlled average speech overlap</span></div>
+      </div>
+    </section>
+
+    <section class="results-section" id="results" aria-labelledby="results-title">
+      <div class="section-kicker">03 / RESULTS</div>
+      <div class="results-header">
+        <div>
+          <h2 id="results-title">Paralinguistic gains.<br><em>Diarization intact.</em></h2>
+          <p>Segment-based F1 at 50 Hz. Select a benchmark to compare the T-UAED baseline with SA-UAED.</p>
+        </div>
+        <div class="result-switcher" role="group" aria-label="Benchmark dataset">
+          <button class="result-button active" data-result="libri" aria-pressed="true">LibriPara</button>
+          <button class="result-button" data-result="ears" aria-pressed="false">EARS · real voices</button>
+        </div>
+      </div>
+
+      <div class="results-panel">
+        <div class="result-summary">
+          <span class="result-context" id="resultContext">Held-out simulated benchmark</span>
+          <div class="big-gain"><strong id="headlineGain">+19.1</strong><span>points<br>cough SB-F1</span></div>
+          <p id="resultNarrative">Dedicated event subspaces nearly double speaker-attributed cough performance while DER remains unchanged.</p>
+          <div class="der-stat"><span>Diarization error rate</span><strong id="derValue">8.09 → 8.07</strong></div>
+        </div>
+        <div class="chart" aria-label="Segment-based F1 comparison">
+          <div class="chart-legend"><span><i class="baseline-dot"></i>T-UAED</span><span><i class="ours-dot"></i>SA-UAED</span></div>
+          <div class="metric-row" data-metric="cough">
+            <div class="metric-label"><strong>Cough</strong><span>speaker-attributed</span></div>
+            <div class="bars">
+              <div class="bar baseline-bar"><span id="coughBaselineLabel">28.2</span></div>
+              <div class="bar ours-bar"><span id="coughOursLabel">47.3</span></div>
+            </div>
+          </div>
+          <div class="metric-row" data-metric="laugh">
+            <div class="metric-label"><strong>Laughter</strong><span>speaker-attributed</span></div>
+            <div class="bars">
+              <div class="bar baseline-bar"><span id="laughBaselineLabel">37.1</span></div>
+              <div class="bar ours-bar"><span id="laughOursLabel">47.6</span></div>
+            </div>
+          </div>
+          <div class="metric-row" data-metric="sed">
+            <div class="metric-label"><strong>Sound events</strong><span>9 DESED classes</span></div>
+            <div class="bars">
+              <div class="bar baseline-bar"><span id="sedBaselineLabel">98.4</span></div>
+              <div class="bar ours-bar"><span id="sedOursLabel">97.9</span></div>
+            </div>
+          </div>
+          <div class="chart-scale"><span>0</span><span>25</span><span>50</span><span>75</span><span>100%</span></div>
+        </div>
+      </div>
+      <p class="result-footnote">Results from Tables 1–2 of the paper. EARS tests zero-shot transfer to genuine human vocalizations from 107 speakers.</p>
+    </section>
+
+    <section class="takeaway-section" aria-labelledby="takeaway-title">
+      <div class="takeaway-copy">
+        <div class="section-kicker">THE TAKEAWAY</div>
+        <h2 id="takeaway-title">Separate the event spaces.<br>Keep the model unified.</h2>
+      </div>
+      <div class="takeaway-actions">
+        <p>SA-UAED adds only two 192 → 192 projections to the original T-UAED design—minimal architectural change, meaningful attribution gains.</p>
+        <div>
+          <a class="primary-action" href="./sa-uaed-paper.pdf" target="_blank" rel="noreferrer">Read the paper <span aria-hidden="true">↗</span></a>
+          <a class="secondary-action" href="https://github.com/originallover/SA-UAED" target="_blank" rel="noreferrer">View code <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <span class="footer-mark">SA-UAED</span>
+      <p>Speaker-Attributed Unified Audio Event Detection</p>
+    </div>
+    <div class="footer-meta">
+      <p>Zekun Lan · Wangyou Zhang · Yanmin Qian</p>
+      <a href="mailto:blue_zz@sjtu.edu.cn">blue_zz@sjtu.edu.cn</a>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>

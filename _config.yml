@@ -7,8 +7,8 @@
 
 # Site Settings
 title                    : "Zekun Lan"
-description              : "ISTJ "
-repository               : "RayeRen/acad-homepage.github.io"
+description              : "ISTJ · Research in speech, audio intelligence, and speaker-aware acoustic understanding."
+repository               : "originallover/originallover.github.io"
 google_scholar_stats_use_cdn : false
 
 # google analytics
@@ -27,7 +27,7 @@ author:
   location         : "Shanghai, China"
   employer         :
   pubmed           : 
-  googlescholar    : #"https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID"
+  googlescholar    :
   email            : "blue_zz@sjtu.edu.cn"
   researchgate     :  # e.g., "https://www.researchgate.net/profile/yourprofile"
   uri              :
@@ -37,7 +37,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : # e.g., "github username"
+  github           : "originallover"
   google_plus      :
   keybase          :
   instagram        :
