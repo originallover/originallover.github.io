@@ -1,0 +1,61 @@
+const BASE_CLASSES = [
+  "Meow",
+  "Bark",
+  "Cat",
+  "Dog",
+  "Domestic_animals_and_pets",
+  "Fowl",
+  "Livestock_and_farm_animals_and_working_animals",
+  "Crow",
+  "Bird_vocalization_and_bird_call_and_bird_song",
+  "Bird",
+  "Animal",
+  "Cowbell",
+  "Church_bell",
+  "Bicycle_bell",
+  "Chime",
+  "Bell",
+  "Brass_instrument",
+  "Keyboard_(musical)",
+  "Drum",
+  "Gong",
+  "Drum_kit",
+  "Percussion",
+  "Electric_guitar",
+  "Bass_guitar",
+  "Guitar",
+  "Plucked_string_instrument",
+  "Harmonica",
+  "Musical_instrument",
+  "Music",
+  "Thunder",
+  "Stream",
+  "Rain",
+  "Pour",
+  "Water",
+  "Vehicle_horn_and_car_horn_and_honking",
+  "Ringtone",
+  "Alarm",
+  "Knock",
+  "Typing",
+  "Writing",
+  "Motorcycle",
+  "Engine",
+  "Explosion"
+];
+
+const NOVEL_CLASSES = [
+  "Chicken_and_rooster",
+  "Chirp_and_tweet",
+  "Trumpet",
+  "Piano",
+  "Acoustic_guitar",
+  "Computer_keyboard",
+  "Accelerating_and_revving_and_vroom",
+  "Gunshot_and_gunfire"
+];
+
+const AUDIO_SLOTS = [
+  { label: "Simulated mixture 01", file: "conv_000000.mp3" },
+  { label: "Simulated mixture 02", file: "conv_000002.mp3" }
+];
