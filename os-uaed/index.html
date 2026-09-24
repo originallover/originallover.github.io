@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="OS-UAED base and novel class split with audio example slots.">
+  <title>OS-UAED · Class Split</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23080b0f'/%3E%3Ccircle cx='23' cy='32' r='11' fill='none' stroke='%2358e0ff' stroke-width='5'/%3E%3Cpath d='M34 20l16 12-16 12' fill='none' stroke='%23ffbd5c' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header>
+    <a class="brand" href="../"><span>OS</span> OS-UAED</a>
+    <a class="paper-link" href="./os-uaed-paper.pdf" target="_blank" rel="noreferrer">Paper ↗</a>
+  </header>
+
+  <main>
+    <section class="intro">
+      <p class="kicker">ICASSP 2027 submission</p>
+      <h1>Class split & audio examples</h1>
+      <p>OS-UAED is trained with 43 base classes and evaluated on 8 novel classes introduced only at inference time.</p>
+    </section>
+
+    <section class="class-section" aria-labelledby="base-title">
+      <div class="section-title">
+        <div><span class="base-dot"></span><h2 id="base-title">Base classes</h2></div>
+        <strong>43</strong>
+      </div>
+      <div class="label-grid" id="baseClasses"></div>
+    </section>
+
+    <section class="class-section novel-section" aria-labelledby="novel-title">
+      <div class="section-title">
+        <div><span class="novel-dot"></span><h2 id="novel-title">Novel classes</h2></div>
+        <strong>8</strong>
+      </div>
+      <div class="label-grid novel-grid" id="novelClasses"></div>
+    </section>
+
+    <section class="audio-section" aria-labelledby="audio-title">
+      <div class="section-title">
+        <div><h2 id="audio-title">Audio examples</h2></div>
+      </div>
+      <p class="section-note">Short single-source clips can be placed in the slots below.</p>
+      <div class="audio-grid" id="audioExamples"></div>
+    </section>
+  </main>
+
+  <footer>
+    <span>OS-UAED</span>
+    <a href="mailto:blue_zz@sjtu.edu.cn">blue_zz@sjtu.edu.cn</a>
+  </footer>
+
+  <script src="./data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
