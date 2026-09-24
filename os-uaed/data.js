@@ -59,7 +59,5 @@ const AUDIO_SLOTS = [
   { label: "Base example 01", file: "base-example-01.wav", enabled: false },
   { label: "Base example 02", file: "base-example-02.wav", enabled: false },
   { label: "Novel example 01", file: "novel-example-01.wav", enabled: false },
-  { label: "Novel example 02", file: "novel-example-02.wav", enabled: false },
-  { label: "Novel example 03", file: "novel-example-03.wav", enabled: false },
-  { label: "Novel example 04", file: "novel-example-04.wav", enabled: false }
+  { label: "Novel example 02", file: "novel-example-02.wav", enabled: false }
 ];
